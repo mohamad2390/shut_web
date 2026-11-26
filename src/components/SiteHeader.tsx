@@ -14,6 +14,8 @@ export async function SiteHeader() {
         <nav aria-label="بخش‌ها" className="site-nav">
           <Link href="/">متخصص‌ها</Link>
           <Link href="/venues">مکان‌های عکاسی</Link>
+          <Link href="/studios">استودیوها</Link>
+          <Link href="/rental">اجاره‌ی تجهیزات</Link>
           <Link href="/market">بازار تجهیزات</Link>
         </nav>
         {me ? (

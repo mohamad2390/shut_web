@@ -90,6 +90,8 @@ main.wrap { padding-block: 1.5rem 4rem; }
 .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
 .card:hover { border-color: var(--blue); }
+.card--static { padding: 1.1rem 1.2rem; }
+.card--static:hover { border-color: var(--line); }
 .card__link { display: block; height: 100%; padding: 1.1rem 1.2rem; color: inherit; text-decoration: none; }
 .card__name { font-size: 1.1rem; font-weight: 700; margin: 0; }
 .card__city { color: var(--muted); margin: 0 0 0.6rem; font-size: 0.92rem; }

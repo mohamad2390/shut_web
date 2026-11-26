@@ -395,3 +395,83 @@ export interface AdminListing {
   photoCount: number;
   pendingOffers: number;
 }
+
+export interface StudioListItem {
+  id: number;
+  name: string;
+  city: string;
+  offeringCount: number;
+  mediaCount: number;
+}
+
+export interface StudioOffering {
+  id: number;
+  title: string;
+  /** Catalog services in the package, e.g. «📸 عکاسی». */
+  services: string[];
+  /** Null means «با تماس». */
+  price: number | null;
+}
+
+export interface StudioDetails {
+  id: number;
+  name: string;
+  managerName: string;
+  phone: string;
+  city: string;
+  address: string;
+  description: string | null;
+  ownerTelegramUsername: string | null;
+  offerings: StudioOffering[];
+  media: { id: number; kind: "PHOTO" | "VIDEO" }[];
+  people: { userId: number; name: string }[];
+}
+
+export interface RentalShopListItem {
+  id: number;
+  name: string;
+  city: string;
+  itemCount: number;
+}
+
+export interface RentalItemSummary {
+  id: number;
+  title: string;
+  typeIcon: string | null;
+  typeName: string;
+  dailyPrice: number;
+  photoCount: number;
+}
+
+export interface RentalSearchItem extends RentalItemSummary {
+  shopId: number;
+  shopName: string;
+  shopCity: string;
+}
+
+export interface RentalShopDetails {
+  id: number;
+  name: string;
+  phone: string;
+  city: string;
+  address: string;
+  description: string | null;
+  ownerTelegramUsername: string | null;
+  items: RentalItemSummary[];
+}
+
+export interface RentalItemDetails {
+  id: number;
+  title: string;
+  typeIcon: string | null;
+  typeName: string;
+  description: string | null;
+  dailyPrice: number;
+  shopId: number;
+  shopName: string;
+  shopPhone: string;
+  shopCity: string;
+  shopAddress: string;
+  ownerTelegramUsername: string | null;
+  photoIds: number[];
+}

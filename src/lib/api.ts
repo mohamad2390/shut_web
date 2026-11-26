@@ -4,6 +4,12 @@ import type {
   ListingListItem,
   MarketCatalog,
   PageResponse,
+  RentalItemDetails,
+  RentalSearchItem,
+  RentalShopDetails,
+  RentalShopListItem,
+  StudioDetails,
+  StudioListItem,
   ProviderDetails,
   ProviderListItem,
   ShowcaseCategory,
@@ -116,4 +122,37 @@ export function getListing(id: number): Promise<ListingDetails | null> {
 
 export function listingPhotoUrl(listingId: number, photoId: number): string {
   return `/api/v1/market/listings/${listingId}/photos/${photoId}`;
+}
+
+export function listStudios(page: number): Promise<PageResponse<StudioListItem>> {
+  return get("/api/v1/studios", { page });
+}
+
+export function getStudio(id: number): Promise<StudioDetails | null> {
+  return orNull(get<StudioDetails>(`/api/v1/studios/${id}`));
+}
+
+/** Address of a studio sample (photo or video). It goes through this site, so the bot token stays on the server. */
+export function studioMediaUrl(studioId: number, mediaId: number): string {
+  return `/api/v1/studios/${studioId}/media/${mediaId}`;
+}
+
+export function listRentalShops(page: number): Promise<PageResponse<RentalShopListItem>> {
+  return get("/api/v1/rental/shops", { page });
+}
+
+export function getRentalShop(id: number): Promise<RentalShopDetails | null> {
+  return orNull(get<RentalShopDetails>(`/api/v1/rental/shops/${id}`));
+}
+
+export function searchRentalItems(q: string, page: number): Promise<PageResponse<RentalSearchItem>> {
+  return get("/api/v1/rental/items", { q, page });
+}
+
+export function getRentalItem(id: number): Promise<RentalItemDetails | null> {
+  return orNull(get<RentalItemDetails>(`/api/v1/rental/items/${id}`));
+}
+
+export function rentalPhotoUrl(itemId: number, photoId: number): string {
+  return `/api/v1/rental/items/${itemId}/photos/${photoId}`;
 }
